@@ -1,0 +1,107 @@
+body {
+    font-family: Arial;
+    background: linear-gradient(135deg, #667eea, #764ba2); /* KEEP SAME */
+    margin: 0;
+}
+
+.container {
+    width: 400px;
+    margin: 60px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px;
+    width: 100%;
+    background: #ff7a00;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #e56700;
+}
+
+/* INPUT ROW */
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+.row input {
+    width: 48%;
+}
+
+/* TABS */
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.tabs button {
+    background: #ff7a00;
+    transition: 0.3s;
+    border-radius: 6px;
+}
+
+/* 🔥 ORANGE ACTIVE TAB (NO BG CHANGE) */
+.tabs button.active {
+    background: linear-gradient(135deg, #ff9a3c, #ff6a00);
+    color: white;
+    transform: scale(1.05);
+    animation: orangeGlow 1.2s infinite alternate;
+}
+
+/* ✨ ORANGE GLOW */
+@keyframes orangeGlow {
+    from {
+        box-shadow: 0 0 5px rgba(255,122,0,0.5);
+    }
+    to {
+        box-shadow: 0 0 15px rgba(255,106,0,0.9);
+    }
+}
+
+/* TRANSACTION LIST */
+.transaction-list {
+    margin-top: 10px;
+}
+
+.transaction-item {
+    background: #fff3e6;
+    padding: 8px;
+    margin: 6px 0;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+/* HISTORY BOX */
+.result-box {
+    background: #ffe8cc;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+/* MOBILE */
+@media (max-width: 500px) {
+    .container {
+        width: 90%;
+    }
+}

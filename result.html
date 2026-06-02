@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Split Result 💰</h2>
+
+    <div class="tabs">
+        <button onclick="showTab('summary', this)" class="active">Summary</button>
+        <button onclick="showTab('transactions', this)">Transactions</button>
+        <button onclick="showTab('history', this)">History</button>
+    </div>
+
+    <div id="summary">
+        <p>Total: ₹{{ total }}</p>
+        <p>Share: ₹{{ share }}</p>
+    </div>
+
+    <div id="transactions" style="display:none;">
+        <div class="transaction-list">
+            {% for t in transactions %}
+                <p class="transaction-item">{{ t }}</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div id="history" style="display:none;">
+        {% for h in history %}
+        <div class="result-box">
+            <p>Total: ₹{{ h.total }}</p>
+            <p>Share: ₹{{ h.share }}</p>
+
+            <div class="transaction-list">
+                {% for t in h.transactions %}
+                    <p class="transaction-item">{{ t }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <br>
+    <a href="/download"><button>Download Report</button></a>
+    <br><br>
+    <a href="/main"><button>Go Back</button></a>
+</div>
+
+<script>
+function showTab(tab, btn) {
+    document.getElementById("summary").style.display = "none";
+    document.getElementById("transactions").style.display = "none";
+    document.getElementById("history").style.display = "none";
+
+    document.getElementById(tab).style.display = "block";
+
+    let buttons = document.querySelectorAll(".tabs button");
+    buttons.forEach(b => b.classList.remove("active"));
+
+    btn.classList.add("active");
+}
+</script>
+
+</body>
+</html>
